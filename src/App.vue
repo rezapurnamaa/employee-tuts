@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="small-container">
     <h1>Employees</h1>
-    <employee-table />
+    <employee-table v-bind:employees="employees"/>
   </div>
 </template>
 
@@ -12,6 +12,22 @@ export default {
   name: 'App',
   components: {
     EmployeeTable
+  },
+  data() {
+    return {
+      employees: [
+        {
+          id: 1,
+          name: 'Reza',
+          email: 'reza@mail.com'
+        },
+        {
+          id: 2,
+          name: 'Luky',
+          email: 'luky@mail.com'
+        }
+      ]
+    }
   }
 }
 </script>

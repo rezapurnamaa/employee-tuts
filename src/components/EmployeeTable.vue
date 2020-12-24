@@ -4,13 +4,13 @@
 			<thead>
 				<tr>
 					<th>Employee Name</th>
-					<th>Employee Name</th>
+					<th>Employee Email</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Employee</td>
-					<td>emplyoee@email.com</td>
+				<tr v-for="employee in employees" v-bind:key="employee.id">
+					<td>{{employee.name}}</td>
+					<td>{{employee.email}}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -19,7 +19,10 @@
 
 <script>
 	export default {
-		name: 'employee-table'
+		name: 'employee-table',
+		props: {
+			employees: Array
+		}
 	}
 </script>
 <style scoped=""></style>
