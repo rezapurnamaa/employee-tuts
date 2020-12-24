@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<form>
+		<form @submit.prevent="handleSubmit">
 			<label>Employee Name</label>
-			<input type="text" name="name">
+			<input v-model="employee.name" type="text" name="name">
 			<label>Employee Email</label>
-			<input type="text" name="email">
+			<input v-model="employee.email" type="text" name="email">
 			<button>Add Employee</button>
 		</form>
 	</div>
@@ -19,6 +19,11 @@
 					name: '',
 					email: ''
 				}
+			}
+		},
+		methods: {
+			handleSubmit() {
+				console.log('handleSubmit')
 			}
 		}
 	}
