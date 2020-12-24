@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="small-container">
     <h1>Employees</h1>
-    <employee-form/>
+    <employee-form @add:employee="addEmployee"/>
     <employee-table v-bind:employees="employees"/>
   </div>
 </template>
@@ -29,6 +29,11 @@ export default {
           email: 'luky@mail.com'
         }
       ]
+    }
+  },
+  methods: {
+    addEmployee(employee) {
+      this.employees = [...this.employees, employee]
     }
   }
 }
