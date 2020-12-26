@@ -3,6 +3,7 @@
     <h1>Employees</h1>
     <employee-form 
       @add:employee="addEmployee"
+      @edit:employee="editEmployee"
     />
     <employee-table 
       v-bind:employees="employees"
@@ -46,11 +47,18 @@ export default {
       const newEmployee = {...employee, id}
       this.employees = [...this.employees, newEmployee]
     },
+
     deleteEmployee(id) {
-      this.employees = this.employees.filter(
-        employee => employee.id !== id
+      this.employees = this.employees.filter( employee =>
+        employee.id !== id
       )
-    }
+    },
+
+    editEmployee(updatedEmployee, id) {
+      this.employees =this.employees.map( employee => 
+        employee.id === id ? updatedEmployee : employee
+      )
+    },
   }
 }
 </script>
