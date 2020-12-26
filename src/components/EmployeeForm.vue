@@ -3,6 +3,7 @@
 		<form @submit.prevent="handleSubmit">
 			<label>Employee Name</label>
 			<input 
+				ref="first"
 				v-model="employee.name" 
 				type="text" 
 				name="name"
@@ -72,6 +73,7 @@
 				this.error = false
 				this.success = true
 				this.submitting = false
+				this.$refs.first.focus()
 			},
 
 			clearStatus() {
