@@ -23,20 +23,12 @@ export default {
   },
   data() {
     return {
-      employees: [
-        {
-          id: 1,
-          name: 'Reza',
-          email: 'reza@mail.com'
-        },
-        {
-          id: 2,
-          name: 'Luky',
-          email: 'luky@mail.com'
-        }
-      ]
+      employees: []
     }
   },
+  mounted() {
+    this.getEmployees()
+  }, 
   methods: {
     addEmployee(employee) {
 
@@ -59,7 +51,18 @@ export default {
         employee.id === id ? updatedEmployee : employee
       )
     },
+
+    async getEmployees() {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users')
+        const data = await response.json()
+        this.employees = data 
+      } catch (error) {
+        console.error(error)
+      }
+    }
   }
+
 }
 </script>
 
