@@ -30,6 +30,7 @@ export default {
     this.getEmployees()
   }, 
   methods: {
+    //REST API POST 
     async addEmployee(employee) {
       try {
         const response = await fetch ('https://jsonplaceholder.typicode.com/users', {
