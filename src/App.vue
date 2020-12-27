@@ -45,10 +45,17 @@ export default {
       }
     },
 
-    deleteEmployee(id) {
-      this.employees = this.employees.filter( employee =>
-        employee.id !== id
-      )
+    async deleteEmployee(id) {
+      try {
+        await fetch(`http://jsonplaceholder.typicode.com/users/{$id}`, {
+          method: 'DELETE'
+        })
+        this.employees = this.employees.filter( employee =>
+          employee.id !== id
+        )
+      } catch (error) {
+          console.error(error)
+      }
     },
 
     async editEmployee(updatedEmployee, id) {
