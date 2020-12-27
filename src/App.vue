@@ -47,7 +47,7 @@ export default {
 
     async deleteEmployee(id) {
       try {
-        await fetch(`http://jsonplaceholder.typicode.com/users/{$id}`, {
+        await fetch(`https://jsonplaceholder.typicode.com/users/{$id}`, {
           method: 'DELETE'
         })
         this.employees = this.employees.filter( employee =>
@@ -60,7 +60,7 @@ export default {
 
     async editEmployee(updatedEmployee, id) {
       try {
-        const response = await fetch('http://jsonplaceholder.typicode.com/users', {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users', {
           method: 'PUT',
           body: JSON.stringify(updatedEmployee),
           headers: {'Content-type': 'application/json; charset=UTF-8'}
